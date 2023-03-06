@@ -1,2 +1,1 @@
-# boot-camp-module-14-tech-blog
- 
+# Boot Camp - Module 14 - Model-View-Controller (MVC) Challenge: Tech Blog
