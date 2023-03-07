@@ -1,43 +1,44 @@
 // Dependencies
-require("dotenv").config();
 const express = require("express");
 const exphbs = require("express-handlebars");
+const session = require("express-session");
 const routes = require("./controllers");
-// const session = require("express-session");
 
 // Sets up Sequelize
 const sequelize = require("./config/connection");
-// const SequelizeStore = require("connect-session-sequelize")(session.Store);
-
-// Sets up Express-Session
-// const sess = {
-//   secret: process.env.SESSION_SECRET,
-//   cookie: {
-//     maxAge: 300000,
-//     httpOnly: true,
-//     secure: false,
-//     sameSite: "strict",
-//   },
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new SequelizeStore({
-//     db: sequelize,
-//     checkExpirationInterval: 1000 * 60 * 10, // Checks every 10 minutes
-//     expiration: 1000 * 60 * 30, // Expires after 30 minutes
-//   }),
-// };
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 // Sets up the Express app
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Sets up Handlebars as the default template engine
+// Sets up Handlebars (add custom helpers between {})
 const hbs = exphbs.create({});
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+
+// Sets up Express-Sessions with cookies
+const sess = {
+  secret: process.env.SESSION_SECRET,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000, // Expires after 1 day
+    httpOnly: true,
+    secure: false,
+    sameSite: "strict",
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+    checkExpirationInterval: 1000 * 60 * 10, // Checks every 10 minutes
+    expiration: 1000 * 60 * 30, // Expires after 30 minutes
+  }),
+};
 
 // Sets up Express-Session
-// app.use(session(sess));
+app.use(session(sess));
+
+// Sets up Handlebars as the default template engine
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 // Middelware needed by Express for POST (Create) and PUT (Update) requests
 app.use(express.json());
