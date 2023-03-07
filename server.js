@@ -3,8 +3,6 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 const routes = require("./controllers");
-// Enable access to .env variables
-require("dotenv").config();
 
 // Sets up Sequelize
 const sequelize = require("./config/connection");
@@ -19,7 +17,7 @@ const hbs = exphbs.create({});
 
 // Sets up Express-Sessions with cookies
 const sess = {
-  secret: process.env.SESSION_SECRET,
+  secret: "session secret", // secret: process.env.SESSION_SECRET,
   cookie: {
     maxAge: 24 * 60 * 60 * 1000, // Expires after 1 day
     httpOnly: true,
