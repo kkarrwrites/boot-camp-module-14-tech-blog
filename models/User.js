@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 
 // Creates a new Sequelize model for Users
 class User extends Model {
+  // Instance method checks that the password that the user inputs matches the password in the database
   checkPassword(loginPassword) {
     return bcrypt.compareSync(loginPassword, this.password);
   }
