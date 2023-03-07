@@ -1,0 +1,12 @@
+[
+  {
+    "comment_text": "This is an informative post.",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "comment_text": "I love coding too.",
+    "user_id": 1,
+    "post_id": 2
+  }
+]
