@@ -3,6 +3,8 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 const routes = require("./controllers");
+// Enable access to .env variables
+require("dotenv").config();
 
 // Sets up Sequelize
 const sequelize = require("./config/connection");
