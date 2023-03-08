@@ -28,13 +28,13 @@ Comment.belongsTo(User, {
 
 // Defines a Blog as having many Comments, thus creating a foreign key in the `comment` table
 Blog.hasMany(Comment, {
-  foreignKey: "post_id",
+  foreignKey: "blog_id",
   onDelete: "CASCADE",
 });
 
 // The association between Blog and Comments can also be created from the Comment side
 Comment.belongsTo(Blog, {
-  foreignKey: "post_id",
+  foreignKey: "blog_id",
   onDelete: "CASCADE",
 });
 
