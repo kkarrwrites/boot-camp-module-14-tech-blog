@@ -5,7 +5,18 @@ const { User, Blog, Comment } = require("../models");
 // GET (Read) for Home
 router.get("/", async (req, res) => {
   try {
-    res.render("home");
+    // Get all blogs and JOIN with user
+    const blogData = await Blog.findAll({
+      include: [{ model: User, attributes: ["username"] }],
+    });
+
+    // Serialize blog data so the template can read it
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+    // Pass serialized blog data
+    res.render("home", {
+      blogs,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
