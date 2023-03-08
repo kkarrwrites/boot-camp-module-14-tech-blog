@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Blog Test 001",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pharetra diam volutpat purus faucibus, sed consequat magna feugiat.",
+    "user_id": 1
+  },
+  {
+    "title": "Blog Test 002",
+    "content": "Suspendisse imperdiet eu enim et hendrerit. Maecenas sagittis eget ipsum vitae consequat. Sed porta aliquet urna vel mollis.",
+    "user_id": 2
+  }
+]
