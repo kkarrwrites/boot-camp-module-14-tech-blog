@@ -1,0 +1,12 @@
+[
+  {
+    "content": "This is an interesting blog.",
+    "user_id": 1,
+    "blog_id": 2
+  },
+  {
+    "content": "You write wonderful blogs.",
+    "user_id": 2,
+    "blog_id": 1
+  }
+]
