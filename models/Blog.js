@@ -20,7 +20,7 @@ Blog.init(
     },
     // Blog post date created
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
@@ -41,7 +41,7 @@ Blog.init(
     // Links to database connection
     sequelize,
     // Set to false to remove `created_at` and `updated_at` fields
-    // timestamps: false,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "blog",
