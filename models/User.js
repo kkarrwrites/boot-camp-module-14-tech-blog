@@ -54,7 +54,7 @@ User.init(
     // Links to database connection
     sequelize,
     // Set to false to remove `created_at` and `updated_at` fields
-    // timestamps: false,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "user",
