@@ -1,7 +1,7 @@
 <!-- Loop over each object in the blogs array -->
 {{#each blogs as |blog|}}
   <article>
-    <h2>{{blog.title}}</h2>
+    <h2><a href="/blog/{{blog.id}}">{{blog.title}}</a></h2>
     <h3>Posted by {{blog.user.username}} on {{format_date blog.date}}</h3>
     <p>{{blog.content}}</p>
   </article>
