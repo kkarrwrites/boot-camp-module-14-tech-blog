@@ -16,7 +16,7 @@
         <li><a href="/dashboard">Dashboard</a></li>
         <!-- Conditionally render log in or log out links in navigation bar -->
         {{#if logged_in}}
-          <li><a href="/logout">Log Out</a></li>
+          <li><a href="/logout" id="logout">Log Out</a></li>
         {{else}}
           <li><a href="/login">Log In</a></li>
         {{/if}}
@@ -24,5 +24,9 @@
     </nav>
     <!-- Render the sublayout -->
     {{{body}}}
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
   </body>
 </html>
