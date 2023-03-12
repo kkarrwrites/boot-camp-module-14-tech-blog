@@ -1,5 +1,5 @@
-const sequelize = require("../config/connection");
 const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 // Creates a new Sequelize model for Blogs
 class Blog extends Model {}
@@ -10,8 +10,8 @@ Blog.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
+      autoIncrement: true,
     },
     // Blog post title
     title: {
@@ -40,8 +40,6 @@ Blog.init(
   {
     // Links to database connection
     sequelize,
-    // Set to false to remove `created_at` and `updated_at` fields
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "blog",
