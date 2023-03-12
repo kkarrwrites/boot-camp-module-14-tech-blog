@@ -1,5 +1,5 @@
-const sequelize = require("../config/connection");
 const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 // Creates a new Sequelize model for Comments
 class Comment extends Model {}
@@ -10,8 +10,8 @@ Comment.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
+      autoIncrement: true,
     },
     // Comment content
     content: {
@@ -36,8 +36,6 @@ Comment.init(
   {
     // Links to database connection
     sequelize,
-    // Set to false to remove `created_at` and `updated_at` fields
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "comment",
