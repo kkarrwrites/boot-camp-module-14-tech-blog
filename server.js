@@ -1,7 +1,8 @@
 // Dependencies
+const path = require("path");
 const express = require("express");
-const exphbs = require("express-handlebars");
 const session = require("express-session");
+const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 const helpers = require("./utils/helpers");
 
@@ -18,9 +19,9 @@ const hbs = exphbs.create({ helpers });
 
 // Sets up Express-Sessions with cookies
 const sess = {
-  secret: "session secret", // secret: process.env.SESSION_SECRET,
+  secret: "Super secret secret", // secret: process.env.SESSION_SECRET,
   cookie: {
-    maxAge: 24 * 60 * 60 * 1000, // Expires after 1 day
+    maxAge: 300000,
     httpOnly: true,
     secure: false,
     sameSite: "strict",
@@ -29,8 +30,6 @@ const sess = {
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
-    checkExpirationInterval: 1000 * 60 * 10, // Checks every 10 minutes
-    expiration: 1000 * 60 * 30, // Expires after 30 minutes
   }),
 };
 
@@ -43,8 +42,8 @@ app.set("view engine", "handlebars");
 
 // Middelware needed by Express for POST (Create) and PUT (Update) requests
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Sets up controllers/routers
 app.use(routes);
