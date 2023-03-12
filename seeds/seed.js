@@ -11,10 +11,22 @@ const seedDatabase = async () => {
   await sequelize.sync({ force: true });
   // Once JavaSript recognizes the `await` keyword, it waits for the promise to be fulfilled before moving on
   // bulkCreate() method inserts multiple records to a database table with a single function call
-  await User.bulkCreate(userSeedData);
-  await Blog.bulkCreate(blogSeedData);
-  await Comment.bulkCreate(commentSeedData);
-  // Node normally exits with a 0 status code when no more async operations are pending
+  const users = await User.bulkCreate(userSeedData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  const blogs = await Blog.bulkCreate(blogSeedData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  const comments = await Comment.bulkCreate(commentSeedData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  // Node.js normally exits with a 0 status code when no more async operations are pending
   process.exit(0);
 };
 
