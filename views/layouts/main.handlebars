@@ -16,7 +16,7 @@
         <li><a href="/dashboard">Dashboard</a></li>
         <!-- Conditionally render log in or log out links in navigation bar -->
         {{#if logged_in}}
-          <li><a href="/logout" id="logout">Log Out</a></li>
+          <li><button id="logout">Log Out</button></li>
         {{else}}
           <li><a href="/login">Log In</a></li>
         {{/if}}
