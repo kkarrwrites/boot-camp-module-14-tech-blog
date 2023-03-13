@@ -15,9 +15,16 @@
   {{#if logged_in}}
     <form class="comment_form">
       <label for="comment">Comment</label><br />
-      <textarea name="comment" type="text" form="comment_form"></textarea><br />
+      <textarea
+        id="comment"
+        name="comment"
+        type="text"
+        form="comment_form"
+      ></textarea><br />
       <button type="submit">Post Comment</button>
     </form>
   {{/if}}
 </article>
-<script src="./js/comment.js"></script>
+{{#if logged_in}}
+  <script src="/js/comment.js"></script>
+{{/if}}
