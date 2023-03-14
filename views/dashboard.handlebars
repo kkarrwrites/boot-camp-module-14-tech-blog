@@ -1,5 +1,29 @@
 <section>
   <h2>Your Dashboard</h2>
   <h3>Welcome, {{username}}.</h3>
-  <button>New Post +</button>
 </section>
+{{#if blogs.length}}
+  {{#each blogs as |blog|}}
+    <section>
+      <h2>Blogs</h2>
+      <a href=""><h3>{{blog.title}} Posted on {{format_date blog.date}}</h3></a>
+    </section>
+  {{/each}}
+{{/if}}
+<section>
+  <button id="new_button">New Blog +</button>
+  <form class="new_form hidden">
+    <h2>Create New Blog</h2>
+    <label for="new_title">Title</label><br />
+    <input id="new_title" type="text" /><br />
+    <label for="new_content">Content</label><br />
+    <textarea
+      id="new_content"
+      name="new"
+      type="text"
+      form="new_form"
+    ></textarea><br />
+    <button type="submit">Create</button>
+  </form>
+</section>
+<script src="/js/new.js"></script>
