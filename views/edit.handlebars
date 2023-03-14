@@ -1,12 +1,18 @@
 <section>
+  <h2>Upate Blog</h2>
   <form class="edit_form">
-    <h2>Edit Post</h2>
     <label for="edit_title">Title</label><br />
     <input id="edit_title" type="text" value="{{title}}" /><br />
     <label for="edit_content">Content</label><br />
-    <input id="edit_content" type="text" value="{{content}}" /><br />
-    <button type="button" id="edit_button" data-id="{{id}}">Update Post</button>
-    <button type="button" id="delete_button" data-id="{{id}}">Delete Post</button>
+    <textarea
+      id="edit_content"
+      name="edit"
+      type="text"
+      form="edit_form"
+    >{{content}}</textarea><br />
+    <!-- <input id="edit_content" type="text" value="{{content}}" /><br /> -->
+    <button type="button" id="edit_button" data-id="{{id}}">Update</button>
+    <button type="button" id="delete_button" data-id="{{id}}">Delete</button>
   </form>
 </section>
 <script src="/js/edit.js"></script>

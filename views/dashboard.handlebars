@@ -3,19 +3,19 @@
   <h3>Welcome, {{username}}.</h3>
 </section>
 {{#if blogs.length}}
-  <h2>Blogs</h2>
-  {{#each blogs as |blog|}}
-    <section>
+  <section>
+    <h2>Blogs</h2>
+    {{#each blogs as |blog|}}
       <a href="/api/edit/{{blog.id}}"><h3>{{blog.title}}
           Posted on
           {{format_date blog.date}}</h3></a>
-    </section>
-  {{/each}}
+    {{/each}}
+  </section>
 {{/if}}
 <section>
   <button id="new_button">New Blog +</button>
   <form class="new_form hidden">
-    <h2>Create New Blog</h2>
+    <h2>New Blog</h2>
     <label for="new_title">Title</label><br />
     <input id="new_title" type="text" /><br />
     <label for="new_content">Content</label><br />
