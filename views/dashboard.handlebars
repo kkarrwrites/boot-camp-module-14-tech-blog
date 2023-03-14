@@ -3,10 +3,12 @@
   <h3>Welcome, {{username}}.</h3>
 </section>
 {{#if blogs.length}}
+  <h2>Blogs</h2>
   {{#each blogs as |blog|}}
     <section>
-      <h2>Blogs</h2>
-      <a href=""><h3>{{blog.title}} Posted on {{format_date blog.date}}</h3></a>
+      <a href="/api/edit/{{blog.id}}"><h3>{{blog.title}}
+          Posted on
+          {{format_date blog.date}}</h3></a>
     </section>
   {{/each}}
 {{/if}}
