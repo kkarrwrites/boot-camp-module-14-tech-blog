@@ -39,6 +39,9 @@ h1 {
 main {
   margin: 25px 50px 25px 50px;
 }
+a {
+  color: #969a97;
+}
 
 /* Blogs/Comments */
 article,
