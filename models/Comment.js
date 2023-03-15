@@ -15,7 +15,7 @@ Comment.init(
     },
     // Comment content
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, // TEXT("long")
       allowNull: false,
     },
     user_id: {
