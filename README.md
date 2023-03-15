@@ -10,7 +10,7 @@ A CMS-style blog built following the MVC paradigm with Handlebars.js as the temp
 
 ## Technologies
 
-JavaScript, Node.js, Express.js, MySQL, Seuqlize, Handlebars, Markdown, Heroku, Git, GitHub, VS Code, Chrome, Firefox
+HTML, CSS, JavaScript, Node.js, Express.js, MySQL, Sequelize, Handlebars, Express Session, Markdown, Heroku, Git, GitHub, VS Code, Chrome, Firefox
 
 ## License
 
